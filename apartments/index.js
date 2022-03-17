@@ -6,12 +6,6 @@ let apt1 = {
     windows: 0, 
     rent: 4500, 
     unit: '1A',
-    lease: function(tenant) {
-        if(this.tenants.length === this.bedrooms) return `${this.unit} is already full!`
-        this.tenants.push(tenant)
-        console.log(tenant.name,'has rented out', this.unit)
-
-    } ,
     tenants: []
 }
 
@@ -63,6 +57,11 @@ let building = {
     streetAddress: '74 N 7th Street, Brooklyn NY 11234',
     laundry: false,
     allowsPets: false,
+    lease: function(apt, tenant) {
+        if(apt.tenants.length === this.bedrooms) return `${this.unit} is already full!`
+        apt.tenants.push(tenant)
+        console.log(tenant.name,'has rented out', apt.unit)
+    },
     apartments: [apt1, apt2, apt3, apt4]
 }
 
@@ -76,7 +75,7 @@ let building = {
 
 /*Name of the Acting Object].[action it is taking](TARGET)*/
 
-apt1.lease(tenant1)
+//apt1.lease(tenant1)
 
 //this pattern tells us the name of the function we need to define and what kind of parameter the function needs to accept.
 /*lease in this case is a function that you need to build, in order to lease apt to tenant 1 */
