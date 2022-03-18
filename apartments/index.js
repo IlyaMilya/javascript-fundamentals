@@ -43,7 +43,8 @@ let tenant1 = {
     name: 'John Doe',
     creditScore: 400,
     salary: 15000,
-    age: 30
+    age: 30,
+    pet: 'Snarky'
 }
 
 let tenant2 = {
@@ -58,12 +59,29 @@ let building = {
     laundry: false,
     allowsPets: false,
     lease: function(apt, tenant) {
-        if(apt.tenants.length === this.bedrooms) return `${this.unit} is already full!`
+        if(apt.tenants.length === this.bedrooms) {return `${this.unit} is already full!`}{
         apt.tenants.push(tenant)
-        console.log(tenant.name,'has rented out', apt.unit)
-    },
-    apartments: [apt1, apt2, apt3, apt4]
-}
+        console.log(tenant.name,'has rented out', apt.unit);
+    }
+    if (this.allowsPets === false && tenant1.pet) {
+        return `${apt.unit} is available, but you must give up ${tenant.pet} up for adoption!`
+    }},
+    occupiedApts : function (){ //returns only the apts which have tenants inside them
+        //condition to test: apt.tenants.length
+          return this.apartments.filter((el) => {
+              return el.tenants.length > 0
+          })
+     },
+     fullApts: function() {
+         //returns only the apts which are completely full
+         //condition to test: apt.tenants.length === apt.bedrooms
+         return this.apartments.filter((el) => {
+             return el.tenants.length === el.bedrooms
+         })
+        },
+         apartments: [apt1, apt2, apt3, apt4]
+    }
+
 
 //building.apartments.forEach()
 
@@ -79,3 +97,34 @@ let building = {
 
 //this pattern tells us the name of the function we need to define and what kind of parameter the function needs to accept.
 /*lease in this case is a function that you need to build, in order to lease apt to tenant 1 */
+
+
+//Write a basic JavaScript object that represents a user that has no fewer than 3 keys/properties about that user
+const user = {
+    name : 'brian',
+    age: 13,
+    favHobby: 'basketball'
+}
+
+//Write a function called greet that takes no arguments and prints the string "Hello World"
+
+const greet = () => {
+    console.log('Hello World')
+}
+
+greet()
+
+const fruits = ['bananas', 'apples', 'justin bieber', 'cherries', 'miley cyrus']
+
+console.log(fruits[1])
+console.log(fruits[fruits.length-1])
+
+const aptbuilding = {
+streetAdd: "2 west end ave 112",
+apartments: 55,
+tenants: 22,
+laundry: true,
+petsAllowed: true,
+avgRent: 1200
+}
+
