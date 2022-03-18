@@ -1,0 +1,52 @@
+body {
+    font-family: 'Rubik', san-serif; 
+    padding:0 15%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 5%;
+}
+
+.container {
+    display:flex;
+    justify-content: space-between;
+}
+
+.card {
+    border: 1px solid yellow;
+    background-color: yellow;
+    border-bottom-right-radius: 5% ;
+    border-top: 2px solid blue;
+    height: 380px;
+    width: 25%;
+    padding: 0 3%;
+    transition: transform .5s, box-shadow 3s;
+}
+
+.transparent {
+    opacity: 0.5;
+}
+
+.card:hover{
+    transform: scale(.3);
+    box-shadow: 0px 12px 20px blue;
+}
+
+.card > h3 {
+    font-size: 2.3em;
+    text-align: center;
+    font-weight: 200;
+}
+
+.card > p {
+    font-size: 1.8em ;
+    font-weight: 200;
+}
+
+.button {
+    font-size: 1.8em;
+    display: block;
+    margin: 0 auto;
+}
