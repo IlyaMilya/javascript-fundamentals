@@ -91,11 +91,21 @@ const render = () => {
     let ul = document.createElement('ul')
     building.apartments.forEach((element) => {
         let li = document.createElement('li')
-        li.innerText = element.unit
+        let button = document.createElement('button')
+        button.innerText = ` RENT + ${element.bedrooms}`
+        li.innerText = `UNIT ${element.unit} `
+        
+        button.addEventListener('click', () => {
+        if (element.bedrooms <= 0 ) return alert( "SORRY, NEW YORK IS DEAD")
+            let vacancies = element.bedrooms -1
+        button.innerText = `${element.unit} vacancies: ${vacancies}`
+        element.bedrooms -= 1
+        })
+        li.append(button)
         ul.append(li)
 
     })
-        div.append(ul) //run this outside of the function to avoid looping the apartments over and ove 
+        div.append( h2 ,ul) //run this outside of the function to avoid looping the apartments over and ove 
 }
 render()
 //building.apartments.forEach()
