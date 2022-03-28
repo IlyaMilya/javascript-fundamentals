@@ -3,7 +3,7 @@ cards = Array.from(cards)
 console.log(cards)
 
 cards.forEach((card)=> {
-    card.eventListener('click', () => {
+    card.addEventListener('click', () => {
         card.classList.toggle('transparent')
         alert('Card was clicked')
     })

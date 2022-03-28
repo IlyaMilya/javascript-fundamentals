@@ -80,9 +80,24 @@ let building = {
          })
         },
          apartments: [apt1, apt2, apt3, apt4]
-    }
+}
 
+const div = document.getElementById('building')
 
+const render = () => {
+    let h2 = document.createElement('h2')
+    h2.innerText = building.streetAddress
+    div.append(h2)
+    let ul = document.createElement('ul')
+    building.apartments.forEach((element) => {
+        let li = document.createElement('li')
+        li.innerText = element.unit
+        ul.append(li)
+
+    })
+        div.append(ul) //run this outside of the function to avoid looping the apartments over and ove 
+}
+render()
 //building.apartments.forEach()
 
 /* FUNCTIONALITY******
